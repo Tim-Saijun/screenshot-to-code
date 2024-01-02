@@ -22,8 +22,14 @@ USER_PROMPT = """
 Generate code for a web page that looks exactly like this.
 """
 
+USER_PROMPT_D0 = """
+Generate code for a web page that looks exactly like this.
+The text needed to put in the page is: " {\n  "prodName": "JC35W2",\n  "prodBrief": "浙江捷昌线性驱动 科技股份有限公司专业生产销售JC35W2, JC35W2, 医疗床, 护理床。JC35W2价格低廉，质量上乘，欢迎新老客户咨询。",\n  "productKeyword": "JC35W2,医疗床,护理 床,Jiecang电动推杆,移位器",\n  "productCategory": "医疗康护",\n  "ProductFeatures": "最大负载：3000N，防护等级：IPX4",\n  "prodAttribute": "负载推力：3000N、2000N、1000N负载拉力：3000N、2000N、1000N颜色：银灰色防护等级：IPX4行程长度：3000N：50-250mm（幅度为4mm）2000N：50-400mm（幅度为4mm）1000N ：50-400mm（幅度为4mm）安装尺寸：L=170（S≤50）L=S+120（50＜S≤400）噪音水平：≤48dB（环境噪音≤40dB）双霍尔反馈：可选内置电子限位开关重量：约1.7kg（不 同行程/安装距，重量存在差异）静态弯矩：不予许侧向负载",\n  "productText": "JC35W2 · 最大负载：3000N · 防护等级：IPX4 状态： 询价 产品描述 产品规格书 2D/3D 负载推力：3000N、2000N、1000N负载拉力：3000N、2000N、1000N颜色：银 灰色防护等级：IPX4行程长度：3000N：50-250mm（幅度为4mm）2000N：50-400mm（ 幅度为4mm）1000N：50-400mm（幅度为4mm）安装尺寸：L=170（S≤50）L=S+120（50 ＜S≤400）噪音水平：≤48dB（环境噪音≤40dB）双霍尔反馈：可选内置电子限位开关 重量：约1.7kg（不同行程/安装距，重量存在差异）静态弯矩：不予许侧向负载",\n  "prodImg": ""\n}"
+put the text above in proper place. You may also need to use some text in the image.
+"""
+
 SVG_USER_PROMPT = """
-Generate code for a SVG that looks exactly like this.
+Generate code for a web page that looks exactly like this.
 """
 
 
