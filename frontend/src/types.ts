@@ -10,6 +10,7 @@ export enum GeneratedCodeConfig {
   BOOTSTRAP = "bootstrap",
   IONIC_TAILWIND = "ionic_tailwind",
   SVG = "svg",
+  TEST_BASIC = "test_basic",
 }
 
 export interface Settings {

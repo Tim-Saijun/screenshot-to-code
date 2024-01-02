@@ -43,6 +43,12 @@ function generateDisplayComponent(config: GeneratedCodeConfig) {
           <span className="font-semibold">SVG</span>
         </div>
       );
+    case GeneratedCodeConfig.TEST_BASIC:
+      return (
+        <div>
+          <span className="font-semibold">Test:基本图文组件</span>
+        </div>
+      );
     default: {
       const exhaustiveCheck: never = config;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);
@@ -101,6 +107,15 @@ function OutputSettingsSection({
               <SelectItem value={GeneratedCodeConfig.SVG}>
                 <div className="flex items-center">
                   {generateDisplayComponent(GeneratedCodeConfig.SVG)}
+                  <Badge className="ml-2" variant="secondary">
+                    Beta
+                  </Badge>
+                </div>
+              </SelectItem>
+              
+              <SelectItem value={GeneratedCodeConfig.TEST_BASIC}>
+                <div className="flex items-center">
+                  {generateDisplayComponent(GeneratedCodeConfig.TEST_BASIC)}
                   <Badge className="ml-2" variant="secondary">
                     Beta
                   </Badge>
