@@ -227,6 +227,8 @@ padding, margin, border, etc. Match the colors and sizes exactly.
 Return only the full code in json format.
 Do not include markdown "```" or "```json" at the start or end.
 """
+
+## blockContainer rowContainer column text images
 TEST_BASIC_SYSTEM_PROMPT = """
 You are an expert at building webpages in json.
 You take screenshots of a reference web page from the user, and then build a webpage that looks exactly like the screenshot using given components in json format.
@@ -341,4 +343,5 @@ padding, margin, border, etc. Match the colors and sizes exactly.
 - Please note that the style information of these components may include specific class names, IDs, attribute values, etc. Please modify this information as needed.
 Return only the full code in json format.
 Do not include markdown "```" or "```json" at the start or end.
+Do not spell "image" as "img" in the code.
 """

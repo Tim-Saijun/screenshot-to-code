@@ -23,14 +23,19 @@ async def stream_openai_response(
         params["max_tokens"] = 4096
         params["temperature"] = 0
 
+    total_tokens = 0  # Initialize token counter
     stream = await client.chat.completions.create(**params)  # type: ignore
     full_response = ""
     async for chunk in stream:  # type: ignore
         assert isinstance(chunk, ChatCompletionChunk)
         content = chunk.choices[0].delta.content or ""
+        estimated_tokens = len(content) / 4  # Rough estimate of tokens
+        total_tokens += estimated_tokens  # Accumulate token count
         full_response += content
         await callback(content)
 
     await client.close()
+
+    print(f"💧💧💧 Estimated total tokens consumed: {total_tokens}")  # Print estimated total tokens consumed
 
     return full_response
