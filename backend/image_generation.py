@@ -1,9 +1,11 @@
 import asyncio
+import os
 import re
 from typing import Dict, List, Union
 from openai import AsyncOpenAI
 from bs4 import BeautifulSoup
-
+import requests
+from upload_to_leadog import uploadToLeadongSystem
 
 async def process_tasks(prompts: List[str], api_key: str, base_url: str):
     tasks = [generate_image(prompt, api_key, base_url) for prompt in prompts]
@@ -31,8 +33,25 @@ async def generate_image(prompt: str, api_key: str, base_url: str):
         "prompt": prompt,
     }
     res = await client.images.generate(**image_params)
+    url = res.data[0].url
+    # print(url)
     await client.close()
-    return res.data[0].url
+    """ 保存图片
+    print("# save the image")
+    image_dir = "images"
+    if not os.path.exists(image_dir):
+        os.makedirs(image_dir)
+    generated_image_name = "generated_image.png"  # any name you like; the filetype should be .png
+    generated_image_filepath = os.path.join(image_dir, generated_image_name)
+    generated_image_url = res.data[0].url  # extract image URL from response
+    generated_image = requests.get(generated_image_url).content  # download the image
+    with open(generated_image_filepath, "wb") as image_file:
+        image_file.write(generated_image)  # write the image to the file
+    """
+    pic_url = uploadToLeadongSystem(url)
+    print(pic_url)
+    # return res.data[0].url
+    return pic_url
 
 
 def extract_dimensions(url: str):
