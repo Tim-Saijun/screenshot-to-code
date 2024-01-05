@@ -46,7 +46,13 @@ function generateDisplayComponent(config: GeneratedCodeConfig) {
     case GeneratedCodeConfig.TEST_BASIC:
       return (
         <div>
-          <span className="font-semibold">Test:基本图文组件</span>
+          <span className="font-semibold">Test:基本图文组件JSON</span>
+        </div>
+      );
+    case GeneratedCodeConfig.TEST_BASIC_HTML:
+      return (
+        <div>
+          <span className="font-semibold">Test:基本图文组件HTML</span>
         </div>
       );
     default: {
@@ -116,6 +122,14 @@ function OutputSettingsSection({
               <SelectItem value={GeneratedCodeConfig.TEST_BASIC}>
                 <div className="flex items-center">
                   {generateDisplayComponent(GeneratedCodeConfig.TEST_BASIC)}
+                  <Badge className="ml-2" variant="secondary">
+                    Beta
+                  </Badge>
+                </div>
+              </SelectItem>
+              <SelectItem value={GeneratedCodeConfig.TEST_BASIC_HTML}>
+                <div className="flex items-center">
+                  {generateDisplayComponent(GeneratedCodeConfig.TEST_BASIC_HTML)}
                   <Badge className="ml-2" variant="secondary">
                     Beta
                   </Badge>

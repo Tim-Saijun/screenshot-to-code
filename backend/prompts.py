@@ -16,6 +16,7 @@ from screenshot_system_prompts import (
     TAILWIND_SYSTEM_PROMPT,
     SVG_SYSTEM_PROMPT,
     TEST_BASIC_SYSTEM_PROMPT,
+    TEST_BASIC_HTML_SYSTEM_PROMPT,
 )
 
 
@@ -88,6 +89,8 @@ def assemble_prompt(
         system_content = SVG_SYSTEM_PROMPT
     elif generated_code_config == "test_basic":
         system_content = TEST_BASIC_SYSTEM_PROMPT
+    elif generated_code_config == "test_basic_html":
+        system_content = TEST_BASIC_HTML_SYSTEM_PROMPT
     else:
         raise Exception("Code config is not one of available options")
 
