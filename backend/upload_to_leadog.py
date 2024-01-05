@@ -3,20 +3,13 @@ import json
 from io import BytesIO
 import io
 from PIL import Image
+import argparse
 from leadogconfig import *
 import logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
+# 输入原始图片url，输出上传后的url
 
-# TODO 根据域名查询相关信息
-domainRes = requests.post(
-    "http://xxl-dm.leadong.com/site/selectSiteInfoByDomain?domain=" + globalNewSiteDomain,proxies=proxiesBeta)
-if domainRes.status_code == 200:
-    domainInfo = json.loads(domainRes.text)
-    comId = domainInfo["comId"]
-    lanCode = domainInfo["lanCode"]
-    logonName = domainInfo["logonName"]
-    print(domainInfo) # {'siteSettingId': 415564, 'logonName': 'demo-litianjie', 'comId': 159804, 'lanCode': 0}
 
 # 图片URL统一预处理
 def photoUrlPreHandle(prodPhotoUrl):
@@ -124,7 +117,11 @@ def uploadToLeadongSystem(prodPhotoUrl):
 
 if __name__ == '__main__':
 
-    img_url = input("请输入图片链接：")
+    # img_url = input("请输入图片链接：")
     # https://oaidalleapiprodscus.blob.core.windows.net/private/org-NPF8YbcBZUgltucCB1yi3PKy/user-wwPLAKPrvCxn3z2mj9JofFS3/img-NgeLK9WIwrAFmWwFS9pyNUg5.png?st=2024-01-05T07%3A59%3A00Z&amp;se=2024-01-05T09%3A59%3A00Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-05T04%3A59%3A44Z&amp;ske=2024-01-06T04%3A59%3A44Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=SnDiHRBLEi54KvV%2ByXilzvJ1rDW1%2B11dxz5OuJ0CpEU%3D
+    parser = argparse.ArgumentParser(description='上传图片')
+    parser.add_argument('--img_url', type=str,  help='原始图片链接')
+    args = parser.parse_args()
+    img_url = args.img_url
     res = uploadToLeadongSystem(img_url)
     print(res)
