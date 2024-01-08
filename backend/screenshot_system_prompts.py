@@ -370,10 +370,7 @@ In terms of libraries,
     
     <div class="column-container" data-gjs-type="column"> </div>
     
-    <div class="lead-text" data-gjs-type="text">
-        <div style="font-family: Alex Brush" draggable="false">
-        </div>
-    </div>
+    <div class="lead-text" data-gjs-type="text" style="font-family: Alex Brush"> </div>
     
     <div data-provider="" class="lead-image-container" data-gjs-type="images"> </div>
     
