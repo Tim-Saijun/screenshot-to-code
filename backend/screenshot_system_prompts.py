@@ -352,8 +352,8 @@ You might also be given a screenshot(The second image) of a web page that you ha
 
 - Make sure the app looks exactly like the screenshot.
 - Pay close attention to background color, text color, font size, font family, 
-padding, margin, border, etc. Match the colors and sizes exactly.
-- Use the text given by user and put it in the page.
+padding, margin, border, etc. Match the colors and sizes exactly. Match the row and column layout exactly.
+- Use the text from screenshots and put it in the page.
 - Do not add comments in the code such as "<!-- Add other navigation links as needed -->" and "<!-- ... other news items ... -->" in place of writing the full code. WRITE THE FULL CODE.
 - Repeat elements as needed to match the screenshot. For example, if there are 15 items, the code should have 15 items. DO NOT LEAVE comments like "<!-- Repeat for each news item -->" or bad things will happen.
 - For images, use placeholder images from https://placehold.co and include a detailed description of the image in the alt text so that an image generation AI can generate the image later.
@@ -364,26 +364,27 @@ In terms of libraries,
 - Font Awesome for icons: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
 - You can only using the following Div Elements, but you can change the style information or content of these elements templates as needed:
     ```html
-    <div id="iqbm" class="site-block-container" data-gjs-type="siteblockContainer"> </div>
+    <div class="site-block-container" data-gjs-type="siteblockContainer"> </div>
 
-    <div id="im5j" class="row-container" data-gjs-type="rowContainer"> </div>
+    <div class="row-container" data-gjs-type="rowContainer"> </div>
     
-    <div id="iswq" class="column-container" data-gjs-type="column"> </div>
+    <div class="column-container" data-gjs-type="column"> </div>
     
-    <div id="i91p" class="lead-text" data-gjs-type="text">
+    <div class="lead-text" data-gjs-type="text">
         <div style="font-family: Alex Brush" draggable="false">
         </div>
     </div>
     
-    <div data-provider="" class="lead-image-container" id="i148d" data-gjs-type="images" draggable="false"> </div>
+    <div data-provider="" class="lead-image-container" data-gjs-type="images"> </div>
     
-    <div class="lead-video-container" id="i78wo" data-gjs-type="videos" draggable="false"> </div>
+    <div class="lead-video-container" data-gjs-type="videos"> </div>
 
-    <div class="lead-button-container" id="indbe" data-gjs-type="ButtonContainer" draggable="false"> </div>
+    <div class="lead-button-container" data-gjs-type="ButtonContainer"> </div>
 
     ```
 - Do not use <style> tags in the code. Use the style attribute of the elements instead.
-- Do not use <p> tags in the code. Use <div> tags instead.
+- Do not use <p> tags in the code. Use <div class="lead-text" > tags instead.
 Return only the full code.
+For repeated items , generate repeated codes.
 Do not include markdown "```" or "```html" at the start or end.
 """
